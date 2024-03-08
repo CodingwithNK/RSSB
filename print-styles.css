@@ -7,7 +7,7 @@
     }
 
     #boxOne {
-        display: none;
+        display: none !important;
     }
 
     #boxFive .icon {
