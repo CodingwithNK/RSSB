@@ -79,6 +79,14 @@
     #boxFive #nominalDataForm #nominal-subit-error {
         display: none;
     }
+
+    #boxFive #nominalDataForm .nameAreaZone #selectNominalCentreName,
+    #boxFive #nominalDataForm #durationOfSewa,
+    #boxFive #nominalDataForm #sewaTo,
+    #boxFive #nominalDataForm #jathedarSignDate,
+    #boxFive #nominalDataForm #secSignDate {
+        appearance: none;
+    }
     
     #boxFive #nominalDataForm #nominal-roll-id-error,
     #boxFive #nominalDataForm #nominal-centre-error,
