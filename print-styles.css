@@ -75,7 +75,11 @@
     #boxFive .clearAndSubmitBtn {
         display: none;
     }
-
+    
+    #boxFive #nominalDataForm #nominal-subit-error {
+        display: none;
+    }
+    
     #boxFive #nominalDataForm #nominal-roll-id-error,
     #boxFive #nominalDataForm #nominal-centre-error,
     #boxFive #nominalDataForm #area-name-error,
