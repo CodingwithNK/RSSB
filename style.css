@@ -3144,6 +3144,10 @@ select::-webkit-scrollbar-thumb {
     }
 
     #selectCentreName,
+    #sewadarDesignation,
+    #searchUsrDesign,
+    #sangatDesignation,
+    #searchSangatDesignation,
     #genderSelectBtn,
     #addressOfCentre,
     #searchSelectCentreName {
@@ -3271,6 +3275,10 @@ select::-webkit-scrollbar-thumb {
     }
 
     #selectCentreName,
+    #sewadarDesignation,
+    #searchUsrDesign,
+    #sangatDesignation,
+    #searchSangatDesignation,
     #genderSelectBtn,
     #addressOfCentre,
     #searchSelectCentreName {
