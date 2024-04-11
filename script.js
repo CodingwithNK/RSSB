@@ -6835,9 +6835,9 @@ loginUsr.innerHTML = firstValue;
 function logout() {
 
     localStorage.removeItem('token');
-    window.history.replaceState(null, null, '/index.html');
+    window.history.replaceState(null, null, 'index.html');
 
-    window.location.href = '/index.html';
+    window.location.href = 'index.html';
 };
 
 
