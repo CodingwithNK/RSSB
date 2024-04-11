@@ -6823,6 +6823,7 @@ pendingBtn.addEventListener("click", function () {
 
 
 const loginUsr = document.getElementById('loginUsr');
+const logOutBtn = document.getElementById('logOutBtn');
 const storedToken = localStorage.getItem('token');
 
 
@@ -6832,13 +6833,13 @@ loginUsr.innerHTML = firstValue;
 
 
 // Logout functionality
-function logout() {
-
+// function logout() {
+logOutBtn.addEventListener("click", function(){
     localStorage.removeItem('token');
     window.history.replaceState(null, null, 'index.html');
 
     window.location.href = 'index.html';
-};
+});
 
 
 
