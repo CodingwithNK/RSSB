@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSSB - Non-Badge-Sewadar-Data</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="print-styles.css" media="print">
+
+</head>
+
+<body">
+
+    <div class="container" id="boxOne">
+        <div class="header">
+            <div class="logo">
+                <img src="logo.jpg">
+                <h2>Radha Soami Satsang Beas, Mohindergarh Centre </h2>
+            </div>
+            <div class="leftRight">
+                <div class="left">
+                    <p>Secretary : <span>Krishan Kumar</span></p>
+                    <p>Contact No. : <span>87081 85283</span></p>
+                    <p>Email Id : <span>mohindergarh.rewari@gmail.com</span></p>
+                </div>
+                <div class="right">
+                    <address>
+                        Address: <span>Sisoth, Mohindergarh <br> Haryana -123029</span>
+                    </address>
+                    <p id="loginInfo"><span id="loginUsr"> </span>
+                        <i onclick="logout()" title="Logout" class="fa-solid fa-circle-user"></i>
+                    </p>
+                </div>
+            </div>
+            <div class="headerBtns">
+                <button id="homeBtn">Sewadar Entry</button>
+                <button id="initionBtn">Initiation Entry</button>
+                <button id="sangatBtn">Sangat Data Entry</button>
+                <button id="nominalBtn">Create Nominal Roll</button>
+                <button id="pendingBtn">Pending</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="boxTwo">
+        <div class="twoBoxesContainer">
+
+            <div class="saveDataBox">
+                <div class="icon">
+                    <p>Save Sewadar Data</p>
+                </div>
+
+                <form name="form1" id="badgeDataForm">
+
+                    <div class="inputBox">
+                        <label for="selectCentreName">Select Centre Name :</label>
+                        <select id="selectCentreName" name="Centre-Name" onchange="chooseCentreName()">
+                            <option id="slctCntrName" value="SelectCentreName">Select Centre Name</option>
+                            <option id="mohindergarh" value="Mohindergarh">Mohindergarh</option>
+                            <option id="bairawas" value="Bairawas">Bairawas</option>
+                            <option id="bawania" value="Bawania">Bawania</option>
+                            <option id="zerpur" value="Zerpur">Zerpur</option>
+                            <option id="satnali" value="Satnali">Satnali</option>
+                            <option id="sehlang" value="Sehlang">Sehlang</option>
+                        </select>
+                        <span id="centre-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrBadgeNo">Badge Number :</label>
+                        <input type="text" name="Badge_No" autocomplete="given-name" placeholder="Enter Badge Number"
+                            id="usrBadgeNo" onkeyup="usrBadgeFunc()">
+                        <span id="badge-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="sewadarDesignation">Designation :</label>
+                        <select id="sewadarDesignation" name="Designation" onchange="sewadarDesignFunc()">
+                            <option value="SelectDesignation">Select Designation</option>
+                            <option value="AREA-SECRETARY">AREA-SECRETARY</option>
+                            <option value="SECRETARY">SECRETARY</option>
+                            <option value="PRESIDENT">PRESIDENT</option>
+                            <option value="COMMITTEE MEMBER">COMMITTEE MEMBER</option>
+                            <option value="INCHARGE">INCHARGE</option>
+                            <option value="ASSISTANT INCHARGE">ASSISTANT INCHARGE</option>
+                            <option value="CARETAKER">CARETAKER</option>
+                            <option value="ASSISTANT CARETAKER">ASSISTANT CARETAKER</option>
+                            <option value="SATSANG KARTA">SATSANG KARTA</option>
+                            <option value="SATSANG READER">SATSANG READER</option>
+                            <option value="PATHI">PATHI</option>
+                            <option value="BADGE SEWADAR">BADGE SEWADAR</option>
+                            <option value="NON-BADGE SEWADAR">NON-BADGE SEWADAR</option>
+                            <option value="SANGAT">SANGAT</option>
+                        </select>
+                        <span id="sewadar-desig-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrName">Full Name :</label>
+                        <input type="text" name="Name" autocomplete="given-name" placeholder="Enter Name" id="usrName"
+                            onkeyup="usrNameFunc()">
+                        <span id="name-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrF-H-Name">Father / Husband :</label>
+                        <input type="text" name="Father/Husband-Name" placeholder="Enter Father/Husband Name"
+                            id="usrF-H-Name" onkeyup="usrF_H_NameFunc()">
+                        <span id="F-H-name-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="genderSelectBtn">Gender :</label>
+                        <select name="Gender" id="genderSelectBtn" onchange="selectGenderFun()">
+                            <option class="optionValue" value="SelectGender">Select Gender</option>
+                            <option class="optionValue" value="Male">Male</option>
+                            <option class="optionValue" value="Female">Female</option>
+                        </select>
+                        <span id="gender-error"></span>
+                    </div>
+
+                    <div class="inputBox" id="dateBox">
+                        <label for="usrAge">Date of Birth :</label>
+                        <input type="date" name="Date-Of-Birth" placeholder="Enter Date Of Birth" id="usrAge"
+                            onchange="usrDobFunc()">
+                        <span id="age-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrPhone">Phone No. :</label>
+                        <input type="tel" name="Phone-No." placeholder="123 4567 892" id="usrPhone"
+                            onkeyup="usrPhoneFunc()">
+                        <span id="phone-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrAlt-Phone">Alternative Phone No. :</label>
+                        <input type="tel" name="Alternative-Phone-No." placeholder="123 4567 892" id="usrAlt-Phone"
+                            onkeyup="usrAltPhoneFunc()">
+                        <span id="alt-phone-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrAdharCard">AdharCard No. :</label>
+                        <input type="text" name="AdharCard-No." placeholder="Enter AdharCard Number" id="usrAdharCard"
+                            onkeyup="usrAdharCardFunc()">
+                        <span id="AdharCard-error"></span>
+                    </div>
+
+                    <section id="addressContainer">
+
+                    </section>
+
+                    <div class="clearAndSubmitBtn">
+                        <div class="submitBtn">
+                            <button type="submit" id="smitBtn">Save Data</button>
+                        </div>
+                        <div class="clearBtn">
+                            <button type="clear" id="clrBtn">Clear Data</button>
+                        </div>
+                    </div>
+
+                    <span id="subit-error"></span>
+                </form>
+                <span class="msg" id="success-msg"></span>
+            </div>
+
+
+            <div class="searchDataBox">
+                <div class="icon">
+                    <p>Search Sewadar Data</p>
+                </div>
+
+                <div class="inputBoxTwo">
+                    <div class="searchBox">
+                        <label for="searchBadge">Badge Number :</label>
+                        <input type="text" placeholder="Search Badge Number" id="searchBadge">
+                    </div>
+
+
+                    <p class="alignCenter">OR</p>
+
+
+                    <div class="searchBox">
+                        <label for="searchSelectCentreName">Select Centre Name :</label>
+                        <select name="centerName" id="searchSelectCentreName">
+                            <option value="SelectCentreName">Select Centre Name</option>
+                            <option value="Mohindergarh">Mohindergarh</option>
+                            <option value="Bairawas">Bairawas</option>
+                            <option value="Bawania">Bawania</option>
+                            <option value="Zerpur">Zerpur</option>
+                            <option value="Satnali">Satnali</option>
+                            <option value="Sehlang">Sehlang</option>
+                        </select>
+                    </div>
+
+                    <div class="searchBox">
+                        <label for="searchUsrDesign">Designation :</label>
+                        <select id="searchUsrDesign" name="Designation">
+                            <option value="SelectDesignation">Select Designation</option>
+                            <option value="ALL">ALL</option>
+                            <option value="AREA-SECRETARY">AREA-SECRETARY</option>
+                            <option value="SECRETARY">SECRETARY</option>
+                            <option value="PRESIDENT">PRESIDENT</option>
+                            <option value="COMMITTEE MEMBER">COMMITTEE MEMBER</option>
+                            <option value="INCHARGE">INCHARGE</option>
+                            <option value="ASSISTANT INCHARGE">ASSISTANT INCHARGE</option>
+                            <option value="CARETAKER">CARETAKER</option>
+                            <option value="ASSISTANT CARETAKER">ASSISTANT CARETAKER</option>
+                            <option value="SATSANG KARTA">SATSANG KARTA</option>
+                            <option value="SATSANG READER">SATSANG READER</option>
+                            <option value="PATHI">PATHI</option>
+                            <option value="BADGE SEWADAR">BADGE SEWADAR</option>
+                            <option value="NON-BADGE SEWADAR">NON-BADGE SEWADAR</option>
+                            <option value="SANGAT">SANGAT</option>
+                        </select>
+                    </div>
+
+                    <div class="searchBox">
+                        <label for="searchName">Sewadar Name :</label>
+                        <input type="text" placeholder="Search Name" id="searchName">
+                    </div>
+                    <div class="searchBox">
+                        <label for="Fath_Hus_Name">Father / Husband Name :</label>
+                        <input type="text" placeholder="Enter Father/Husband Name" id="Fath_Hus_Name">
+                    </div>
+                    <div class="searchButton">
+                        <button type="search" id="searchBtn">Search</button>
+                        <img src="search-gif.gif" class="searchIcon">
+                    </div>
+
+                    <span id="sewadar-search-error">
+                        You Are Not In Our Database! <br> Please Save Your Data Above.
+                    </span>
+                </div>
+
+                <div class="resultBox"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container" id="boxThree">
+        <div class="initiationBox">
+            <div class="saveDataBox">
+                <div class="icon">
+                    <p>Save Initiation Data</p>
+                </div>
+
+                <form name="form2" id="initiationForm">
+
+                    <div class="inputBox">
+                        <label for="selectInitiationCentreName">Select Centre Name :</label>
+                        <select name="Ini-Centre-Name" id="selectInitiationCentreName"
+                            onchange="chooseInitiationCentreName()">
+                            <option value="SelectCentreName">Select Centre Name</option>
+                            <option value="Mohindergarh">Mohindergarh</option>
+                            <option value="Bairawas">Bairawas</option>
+                            <option value="Bawania">Bawania</option>
+                            <option value="Zerpur">Zerpur</option>
+                            <option value="Satnali">Satnali</option>
+                            <option value="Sehlang">Sehlang</option>
+                        </select>
+                        <span id="initiation-centre-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="initiationName">Full Name :</label>
+                        <input type="text" name="Initiation-Name" autocomplete="given-name" placeholder="Enter Name"
+                            id="initiationName" onkeyup="initiationNameFunc()">
+                        <span id="initiation-name-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="initiation-F-H-Name">Father / Husband :</label>
+                        <input type="text" name="Ini-Father/Husband-Name" placeholder="Enter Father/Husband Name"
+                            id="initiation-F-H-Name" onkeyup="initiation_F_H_NameFunc()">
+                        <span id="initiation-F-H-name-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="initiationGenderSelect">Gender :</label>
+                        <select name="Initiation-Gender" id="initiationGenderSelect"
+                            onchange="initiationSelectGenderFun()">
+                            <option value="SelectGender">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <span id="initiation-gender-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="initiationPhone">Phone No. :</label>
+                        <input type="tel" name="Ini-Phone-No." placeholder="123 4567 892" id="initiationPhone"
+                            onkeyup="initiationPhoneFunc()">
+                        <span id="initiation-phone-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="initiation-Alt-Phone">Alternative Phone No. :</label>
+                        <input type="tel" name="Ini-Alternative-Phone-No." placeholder="123 4567 892"
+                            id="initiation-Alt-Phone" onkeyup="initiationAltPhoneFunc()">
+                        <span id="initiation-alt-phone-error"></span>
+                    </div>
+
+                    <section id="initiationAddressContainer">
+
+                    </section>
+
+                    <div class="inputBox" id="qualificationBoxes">
+                        <label for="initiationQualification">Qualification :</label>
+                        <select name="Qualification" id="initiationQualification"
+                            onchange="initiationQualificationFun()">
+                            <option value="SelectQualification">Select Your Qualification</option>
+                            <option value="DIPLOMA">DIPLOMA</option>
+                            <option value="DOCTRATE">DOCTRATE</option>
+                            <option value="ENGINEERING">ENGINEERING</option>
+                            <option value="GRADUATION">GRADUATION</option>
+                            <option value="ILLITERATE">ILLITERATE</option>
+                            <option value="MEDICAL">MEDICAL</option>
+                            <option value="OTHERS">OTHERS</option>
+                            <option value="SCHOOLING">SCHOOLING</option>
+                            <option value="POST GRADUATION">POST GRADUATION</option>
+                            <option value="PROFESSIONAL">PROFESSIONAL</option>
+                        </select>
+                        <span id="qualification-error"></span>
+                    </div>
+
+                    <section id="qualificationContainer">
+
+                    </section>
+
+                    <div class="inputBox">
+                        <label for="initiationOccupation">Occupation :</label>
+                        <select name="Occupation" id="initiationOccupation" onchange="initiationOccupationFun()">
+                            <option value="SelectOccupation">Select Your Occupation</option>
+                            <option value="Student">Student</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Self-Employee">Self-Employee</option>
+                            <option value="Govt Employee">Govt Employee</option>
+                            <option value="Private Employee">Private Employee</option>
+                            <option value="Kissan">Kissan</option>
+                            <option value="House Wife">House Wife</option>
+                            <option value="Shop Kipper">Shop Kipper</option>
+                            <option value="Ex-Service Man">Ex-Service Man</option>
+                        </select>
+                        <span id="occupation-error"></span>
+                    </div>
+
+                    <div class="inputBox" id="dateBox">
+                        <label for="initiationDate">Initiation Date :</label>
+                        <input type="date" name="Initiation-Date" placeholder="Enter Initiation Date"
+                            id="initiationDate" onchange="initiationDateFunc()">
+                        <span id="initiation-Date-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="initiationPlace">Initiation Place :</label>
+                        <select name="Initiation-Place" id="initiationPlace" onchange="initiationPlaceFun()">
+                            <option value="SelectInitiationPlace">Select Initiation Place</option>
+                            <option value="Beas">Beas</option>
+                            <option value="Bhati(Delhi)">Bhati(Delhi)</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Sikanderpur">Sikanderpur</option>
+                            <option value="Saharanpur">Saharanpur</option>
+                        </select>
+                        <span id="initiation-Place-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="initiation-Byy">Initiated By :</label>
+                        <select name="Initiation-By" id="initiation-Byy" onchange="initiationKisSeLiyeFun()">
+                            <option value="SelectInitiationByy">Select Initiated By</option>
+                            <option value="Baba Gurinder Singh Ji">Baba Gurinder Singh Ji</option>
+                            <option value="Maharaj Charan Singh Ji">Maharaj Charan Singh Ji</option>
+                            <option value="Maharaj Jagat Singh Ji">Maharaj Jagat Singh Ji</option>
+                            <option value="Maharaj Sawan Singh Ji">Maharaj Sawan Singh Ji</option>
+                        </select>
+                        <span id="initiation-By-error"></span>
+                    </div>
+
+                    <div class="clearAndSubmitBtn">
+                        <div class="submitBtn">
+                            <button type="submit" id="iniSmitBtn">Save Data</button>
+                        </div>
+                        <div class="clearBtn">
+                            <button type="clear" id="iniClrBtn">Clear Data</button>
+                        </div>
+                    </div>
+                    <span id="initiation-subit-error"></span>
+                </form>
+                <span class="ini-msg" id="ini-success-msg"></span>
+            </div>
+
+
+            <div class="searchDataBox">
+                <div class="icon">
+                    <p>Search Initiation Data</p>
+                </div>
+
+                <div class="inputBoxTwo">
+                    <div class="searchBox">
+                        <label for="searchInitiationCentreName">Select Centre Name :</label>
+                        <select id="searchInitiationCentreName">
+                            <option value="SearchIniCentreName">Select Centre Name</option>
+                            <option value="Mohindergarh">Mohindergarh</option>
+                            <option value="Bairawas">Bairawas</option>
+                            <option value="Bawania">Bawania</option>
+                            <option value="Zerpur">Zerpur</option>
+                            <option value="Satnali">Satnali</option>
+                            <option value="Sehlang">Sehlang</option>
+                        </select>
+                        <span id="initiation-centre-error"></span>
+                    </div>
+                    <div class="searchBox">
+                        <label for="iniSearchName">Initiate Name :</label>
+                        <input type="text" placeholder="Search Name" id="iniSearchName">
+                    </div>
+                    <div class="searchBox">
+                        <label for="iniFath_Hus_Name">Father / Husband Name :</label>
+                        <input type="text" placeholder="Enter Father/Husband Name" id="iniFath_Hus_Name">
+                    </div>
+                    <div class="searchButton">
+                        <button type="search" id="iniSearchBtn">Search</button>
+                        <img src="search-gif.gif" class="iniSearchIcon">
+                    </div>
+                    <span id="initiation-search-error">
+                        You Are Not In Our Database! <br> Please Save Your Data Above.
+                    </span>
+                </div>
+
+                <div class="initiationResultBox"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="boxFour">
+        <div class="sangatBox">
+            <div class="saveDataBox">
+                <div class="icon">
+                    <p>Save Sangat Data</p>
+                </div>
+
+                <form name="form3" id="sangatDataForm">
+
+                    <div class="inputBox">
+                        <label for="selectSangatCentreName">Select Centre Name :</label>
+                        <select id="selectSangatCentreName" name="Centre-Name" onchange="sangatChooseCentreName()">
+                            <option id="slctCntrName" value="SelectCentreName">Select Centre Name</option>
+                            <option id="mohindergarh" value="Mohindergarh">Mohindergarh</option>
+                            <option id="bairawas" value="Bairawas">Bairawas</option>
+                            <option id="bawania" value="Bawania">Bawania</option>
+                            <option id="zerpur" value="Zerpur">Zerpur</option>
+                            <option id="satnali" value="Satnali">Satnali</option>
+                            <option id="sehlang" value="Sehlang">Sehlang</option>
+                        </select>
+                        <span id="sangat-centre-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="sangatDesignation">Designation :</label>
+                        <select id="sangatDesignation" name="Designation" onchange="sangatDesigFun()">
+                            <option value="SelectDesignation">Select Designation</option>
+                            <option value="AREA-SECRETARY">AREA-SECRETARY</option>
+                            <option value="SECRETARY">SECRETARY</option>
+                            <option value="PRESIDENT">PRESIDENT</option>
+                            <option value="COMMITTEE MEMBER">COMMITTEE MEMBER</option>
+                            <option value="INCHARGE">INCHARGE</option>
+                            <option value="ASSISTANT INCHARGE">ASSISTANT INCHARGE</option>
+                            <option value="CARETAKER">CARETAKER</option>
+                            <option value="ASSISTANT CARETAKER">ASSISTANT CARETAKER</option>
+                            <option value="SATSANG KARTA">SATSANG KARTA</option>
+                            <option value="SATSANG READER">SATSANG READER</option>
+                            <option value="PATHI">PATHI</option>
+                            <option value="BADGE SEWADAR">BADGE SEWADAR</option>
+                            <option value="NON-BADGE SEWADAR">NON-BADGE SEWADAR</option>
+                            <option value="SANGAT">SANGAT</option>
+                        </select>
+                        <span id="sangat-desig-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrName">Full Name :</label>
+                        <input type="text" name="Name" autocomplete="given-name" placeholder="Enter Name"
+                            id="sangatUsrName" onkeyup="sangatUsrNameFunc()">
+                        <span id="sangat-name-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrF-H-Name">Father / Husband :</label>
+                        <input type="text" name="Father/Husband-Name" placeholder="Enter Father/Husband Name"
+                            id="sangatUsrF-H-Name" onkeyup="sangatUsrF_H_NameFunc()">
+                        <span id="sangat-F-H-name-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="sangatGenderSelectBtn">Gender :</label>
+                        <select name="Gender" id="sangatGenderSelectBtn" onchange="sangatSelectGenderFun()">
+                            <option class="optionValue" value="SelectGender">Select Gender</option>
+                            <option class="optionValue" value="Male">Male</option>
+                            <option class="optionValue" value="Female">Female</option>
+                        </select>
+                        <span id="sangat-gender-error"></span>
+                    </div>
+
+                    <div class="inputBox" id="dateBox">
+                        <label for="sangatUsrAge">Date of Birth :</label>
+                        <input type="date" name="Date-Of-Birth" placeholder="Enter Date Of Birth" id="sangatUsrAge"
+                            onchange="sangatUsrDobFunc()">
+                        <span id="sangat-age-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrPhone">Phone No. :</label>
+                        <input type="tel" name="Phone-No." placeholder="123 4567 892" id="sangatUsrPhone"
+                            onkeyup="sangatUsrPhoneFunc()">
+                        <span id="sangat-phone-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrAlt-Phone">Alternative Phone No. :</label>
+                        <input type="tel" name="Alternative-Phone-No." placeholder="123 4567 892"
+                            id="sangatUsrAlt-Phone" onkeyup="sangatUsrAltPhoneFunc()">
+                        <span id="sangat-alt-phone-error"></span>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="usrAdharCard">AdharCard No. :</label>
+                        <input type="text" name="AdharCard-No." placeholder="Enter AdharCard Number"
+                            id="sangatUsrAdharCard" onkeyup="sangatUsrAdharCardFunc()">
+                        <span id="sangat-AdharCard-error"></span>
+                    </div>
+
+                    <section id="sangatAddressContainer">
+
+                    </section>
+
+                    <div class="clearAndSubmitBtn">
+                        <div class="submitBtn">
+                            <button type="submit" id="sangatSmitBtn">Save Data</button>
+                        </div>
+                        <div class="clearBtn">
+                            <button type="clear" id="sangatClrBtn">Clear Data</button>
+                        </div>
+                    </div>
+
+                    <span id="sangat-subit-error"></span>
+                </form>
+                <span class="sangat-msg" id="sangat-success-msg"></span>
+            </div>
+
+
+            <div class="searchDataBox">
+                <div class="icon">
+                    <p>Search Sangat Data</p>
+                </div>
+
+                <div class="inputBoxTwo">
+                    <div class="searchBox">
+                        <label for="sangatSearchSelectCentreName">Select Centre Name :</label>
+                        <select name="centerName" id="sangatSearchSelectCentreName">
+                            <option value="SelectCentreName">Select Centre Name</option>
+                            <option value="Mohindergarh">Mohindergarh</option>
+                            <option value="Bairawas">Bairawas</option>
+                            <option value="Bawania">Bawania</option>
+                            <option value="Zerpur">Zerpur</option>
+                            <option value="Satnali">Satnali</option>
+                            <option value="Sehlang">Sehlang</option>
+                        </select>
+                    </div>
+                    <div class="searchBox">
+                        <label for="searchSangatDesignation">Designation :</label>
+                        <select id="searchSangatDesignation" name="Designation">
+                            <option value="SelectDesignation">Select Designation</option>
+                            <option value="ALL">ALL</option>
+                            <option value="AREA-SECRETARY">AREA-SECRETARY</option>
+                            <option value="SECRETARY">SECRETARY</option>
+                            <option value="PRESIDENT">PRESIDENT</option>
+                            <option value="COMMITTEE MEMBER">COMMITTEE MEMBER</option>
+                            <option value="INCHARGE">INCHARGE</option>
+                            <option value="ASSISTANT INCHARGE">ASSISTANT INCHARGE</option>
+                            <option value="CARETAKER">CARETAKER</option>
+                            <option value="ASSISTANT CARETAKER">ASSISTANT CARETAKER</option>
+                            <option value="SATSANG KARTA">SATSANG KARTA</option>
+                            <option value="SATSANG READER">SATSANG READER</option>
+                            <option value="PATHI">PATHI</option>
+                            <option value="BADGE SEWADAR">BADGE SEWADAR</option>
+                            <option value="NON-BADGE SEWADAR">NON-BADGE SEWADAR</option>
+                            <option value="SANGAT">SANGAT</option>
+                        </select>
+                    </div>
+                    <div class="searchBox">
+                        <label for="sangatSearchName">Sangat Name :</label>
+                        <input type="text" placeholder="Search Name" id="sangatSearchName">
+                    </div>
+                    <div class="searchBox">
+                        <label for="sangatFath_Hus_Name">Father / Husband Name :</label>
+                        <input type="text" placeholder="Enter Father/Husband Name" id="sangatFath_Hus_Name">
+                    </div>
+                    <div class="searchButton">
+                        <button type="search" id="sangatSearchBtn">Search</button>
+                        <img src="search-gif.gif" class="sangatSearchIcon">
+                    </div>
+
+                    <span id="sangat-search-error">
+                        You Are Not In Our Database! <br> Please Save Your Data Above.
+                    </span>
+                </div>
+
+                <div class="sangatResultBox"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container" id="boxFive">
+        <div class="nominalBox">
+            <div class="saveDataBox" id="createNominal">
+                <div class="icon">
+                    <p>Create Nominal Roll</p>
+                </div>
+
+                <div class="logoAndFormName">
+                    <div class="logo">
+                        <img src="logo.jpg">
+                    </div>
+                    <div class="topCentreLine">
+                        <p>SATSANG CENTRES IN INDIA NOMINAL ROLL SEWA JATHA</p>
+                    </div>
+                    <div class="sciForm">
+                        <p>SCI/2020/84</p>
+                    </div>
+                </div>
+
+                <form name="form4" id="nominalDataForm">
+
+                    <div id="nominalRollAndDesignation">
+                        <div class="nominalInputBox spaceFromLeftSide">
+                            <label id="nominalRollLabel" for="nominalRollId">NOMINAL ROLL ID NO. :</label>
+                            <input type="text" name="NominalRollIdNo" autocomplete="given-name"
+                                placeholder="Enter Your Nominal Roll Id" id="nominalRollId"
+                                onkeyup="nominalRollIdFunc()">
+                            <span id="nominal-roll-id-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="nameAreaZone">
+                        <div class="nominalInputBox  spaceFromLeftSide">
+                            <label class="lableWidth" for="selectNominalCentreName">NAME OF SATSANG PLACE :</label>
+                            <select id="selectNominalCentreName" name="NameOfSatsangPlace"
+                                onchange="nominalChooseCentreName()">
+                                <option value="SelectCentreName">Select Centre Name</option>
+                                <option value="MOHINDERGARH">MOHINDERGARH</option>
+                                <option value="BAIRAWAS">BAIRAWAS</option>
+                                <option value="BAWANIA">BAWANIA</option>
+                                <option value="ZERPUR">ZERPUR</option>
+                                <option value="SATNALI">SATNALI</option>
+                                <option value="SEHLANG">SEHLANG</option>
+                            </select>
+                            <span id="nominal-centre-error"></span>
+                        </div>
+
+                        <div class="nominalInputBox areaLabelAndDuration">
+                            <label class="areaLableWidth" for="nameOfArea">AREA :</label>
+                            <input type="text" name="Area" autocomplete="given-name"
+                                placeholder="Choose Your Centre Name" id="nameOfArea">
+                            <span id="area-name-error"></span>
+                        </div>
+
+                        <div class="nominalInputBox">
+                            <div class="zoneCentreBox">
+                                <label style="margin-left: 16px;">ZONE :</label>
+                                <p id="nameOfZone" class="zone">II</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="jathedarDriver">
+                        <div class="nominalInputBox  spaceFromLeftSide">
+                            <label class="lableWidth" for="nameOfJathedar">NAME OF JATHEDAR :</label>
+                            <input type="text" name="NameOfJathedarSewa" autocomplete="given-name"
+                                placeholder="Enter Jathedar Name" id="nameOfJathedar" onkeyup="jathedarNameFunc()">
+                            <span id="nominal-name-error"></span>
+                        </div>
+
+                        <div class="nominalInputBox  spaceFromRightSide">
+                            <label class="driverLableWidth" for="nameOfDriver">NAME OF DRIVER :</label>
+                            <input type="text" name="NameOfDriverSewa" placeholder="Enter Driver Name" id="nameOfDriver"
+                                onkeyup="driverNameFunc()">
+                            <span id="driver-name-error"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="vehicleNo">
+                        <div class="nominalInputBox  spaceFromLeftSide">
+                            <label class="lableWidth" for="vehicleName">TYPE OF VEHICLE :</label>
+                            <input type="text" name="TypeOfVehicle" autocomplete="given-name"
+                                placeholder="Enter Vehicle Name" id="vehicleName" onkeyup="vehicleNameFunc()">
+                            <span id="vehicle-name-error"></span>
+                        </div>
+
+                        <div class="nominalInputBox  spaceFromRightSide">
+                            <label class="vehicleLableWidth" for="vehicleNumber">VEHICLE NO. :</label>
+                            <input type="text" name="VehicleNoSewa" placeholder="Enter Vehicle Number"
+                                id="vehicleNumber" onkeyup="vehicleNumberFunc()">
+                            <span id="vehicle-number-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="placeDuration spaceForTopAndBottom">
+                        <div class="nominalInputBox  spaceFromLeftSide">
+                            <label class="lableWidth" for="placeOfSewa">PLACE OF SEWA :</label>
+                            <select id="placeOfSewa" name="SewaPlaceOfSewa" onchange="placeOfSewaFunc()">
+                                <option value="SelectSewaPlace">Select Place Of Sewa</option>
+                                <option value="BEAS">BEAS</option>
+                                <option value="SIKANDERPUR (MC)">SIKANDERPUR (MC)</option>
+                                <option value="SAHARANPUR-I (AMBALA ROAD)(MC)">SAHARANPUR-I (AMBALA ROAD)(MC)</option>
+                                <option value="SURATGARH-I (LALPURA)(MC)">SURATGARH-I (LALPURA)(MC)</option>
+                                <option value="JAIPUR-I (BILWA)(MC)">JAIPUR-I (BILWA)(MC)</option>
+                                <option value="LUCKNOW-I (MOHANLALGANJ)(MC)">LUCKNOW-I (MOHANLALGANJ)(MC)</option>
+                                <option value="BHATTI(MC)">BHATTI(MC)</option>
+                                <option value="OTHER THAN BEAS">OTHER THAN BEAS</option>
+                            </select>
+
+                            <span id="place-name-error"></span>
+                        </div>
+
+                        <div class="dateFromTo">
+                            <div class="nominalInputBox durationLable dateInputBox" id="fromDate">
+                                <label class="durationLableWidth" for="durationOfSewa">DURATION OF SEWA :</label>
+                                <input class="nominalDate" type="date" name="FromDateSewa" id="durationOfSewa"
+                                    onchange="durationOfSewaFunc()">
+                                <span id="sewa-duration-from-error"></span>
+                            </div>
+                            <div class="nominalInputBox sewaLableForTo dateInputBox">
+                                <label for="sewaTo">TO</label>
+                                <input class="nominalDate" type="date" name="ToDateSewa" id="sewaTo"
+                                    onchange="sewaToFunc()">
+                                <span id="sewa-duration-to-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nominalInputBox spaceForTopAndBottom">
+                        <label for="departmentSewa">(Mention Beas Department or Centre as applicable) :</label>
+
+                        <select id="departmentSewa" name="DepartmentAndCentreName" onchange="departmentSewaFunc()">
+                            <option value="ChooseYourDepartment">Choose Your Department</option>
+                            <option value="ACCOMMODATION SEWA">ACCOMMODATION SEWA</option>
+                            <option value="AGRICULTURE SEWA">AGRICULTURE SEWA</option>
+                            <option value="AV">AV</option>
+                            <option value="BEAS CARPENTRY SEWA">BEAS CARPENTRY SEWA</option>
+                            <option value="BEAS CENTRAL STORE SEWA">BEAS CENTRAL STORE SEWA</option>
+                            <option value="BEAS ELECTRICAL SEWA">BEAS ELECTRICAL SEWA</option>
+                            <option value="BEAS FLOORING SEWA (SHED NO.2)">BEAS FLOORING SEWA (SHED NO.2)</option>
+                            <option value="BEAS FLOUR MILL SEWA">BEAS FLOUR MILL SEWA</option>
+                            <option value="BEAS HOSTEL SEWA">BEAS HOSTEL SEWA</option>
+                            <option value="BEAS LANDSCAPING SEWA">BEAS LANDSCAPING SEWA</option>
+                            <option value="BEAS LANGAR BAALAN SEWA">BEAS LANGAR BAALAN SEWA</option>
+                            <option value="BEAS LANGAR BADGESECTION SEWA">BEAS LANGAR BADGESECTION SEWA</option>
+                            <option value="BEAS LANGAR SECURITY SEWA">BEAS LANGAR SECURITY SEWA</option>
+                            <option value="BEAS MATTRESS SEWA SHED NO.9">BEAS MATTRESS SEWA SHED NO.9</option>
+                            <option value="BEAS MECHNICAL WORKSHOP SEWA">BEAS MECHNICAL WORKSHOP SEWA</option>
+                            <option value="BEAS PARKING SEWA">BEAS PARKING SEWA</option>
+                            <option value="BEAS POTATO DIGGING">BEAS POTATO DIGGING</option>
+                            <option value="BEAS RAILWAY ENQUIRY SEWA">BEAS RAILWAY ENQUIRY SEWA</option>
+                            <option value="BEAS SCRAP SEWA">BEAS SCRAP SEWA</option>
+                            <option value="BEAS SHAMIANA STORE">BEAS SHAMIANA STORE</option>
+                            <option value="BEAS TILE FACTORY SEWA">BEAS TILE FACTORY SEWA</option>
+                            <option value="BITUMEN (LUK) SEWA">BITUMEN (LUK) SEWA</option>
+                            <option value="BOOKS">BOOKS</option>
+                            <option value="BUS/VAN DRIVERS">BUS/VAN DRIVERS</option>
+                            <option value="CANTEEN-4 SEWA">CANTEEN-1 SEWA</option>
+                            <option value="CANTEEN-3 SEWA">CANTEEN-2 SEWA</option>
+                            <option value="CANTEEN-2 SEWA">CANTEEN-3 SEWA</option>
+                            <option value="CANTEEN-1 SEWA">CANTEEN-4 SEWA</option>
+                            <option value="CHILDREN CARE SEWA- NAMDAAN">CHILDREN CARE SEWA- NAMDAAN</option>
+                            <option value="COMMON COMPLAINT CELL SEWA- BEAS">COMMON COMPLAINT CELL SEWA- BEAS
+                            </option>
+                            <option value="CONSTRUCTION SEWA">CONSTRUCTION SEWA</option>
+                            <option value="DAK SEWA">DAK SEWA</option>
+                            <option value="DCC SEWA">DCC SEWA</option>
+                            <option value="ENGINEERING SEWA">ENGINEERING SEWA</option>
+                            <option value="F&B UNIT-1 SEWA">F&B UNIT-1 SEWA</option>
+                            <option value="F&B UNIT-2 SEWA">F&B UNIT-2 SEWA</option>
+                            <option value="F&B UNIT-3 SEWA">F&B UNIT-3 SEWA</option>
+                            <option value="F&B UNIT-4 SEWA">F&B UNIT-4 SEWA</option>
+                            <option value="FLOORING SEWA- SHED NO.12">FLOORING SEWA- SHED NO.12</option>
+                            <option value="FLOORING SEWA SHED NO.14">FLOORING SEWA SHED NO.14</option>
+                            <option value="FOOD AND VEGETABLE">FOOD AND VEGETABLE</option>
+                            <option value="HELP LINE BEAS">HELP LINE BEAS</option>
+                            <option value="HORTICULTURE SEWA">HORTICULTURE SEWA</option>
+                            <option value="HOSPITAL SEWA- BEAS">HOSPITAL SEWA- BEAS</option>
+                            <option value="HOSPITAL SEWA- DERA">HOSPITAL SEWA- DERA</option>
+                            <option value="HOSPITAL SEWA- SIKANDERPUR">HOSPITAL SEWA- SIKANDERPUR</option>
+                            <option value="KAEE SEWA">KAEE SEWA</option>
+                            <option value="LANGAR CHHABEEL">LANGAR CHHABEEL</option>
+                            <option value="LANGAR GATE SEWA">LANGAR GATE SEWA</option>
+                            <option value="LANGAR SEWA">LANGAR SEWA</option>
+                            <option value="LANGAR STORE">LANGAR STORE</option>
+                            <option value="MAND SEWA">MAND SEWA</option>
+                            <option value="MITTI SEWA">MITTI SEWA</option>
+                            <option value="NAAMDAAN SEWA">NAAMDAAN SEWA</option>
+                            <option value="NIGHT SEWA">NIGHT SEWA</option>
+                            <option value="NURSERY">NURSERY</option>
+                            <option value="PA SOUND SEWA">PA SOUND SEWA</option>
+                            <option value="PANDAL SEWA">PANDAL SEWA</option>
+                            <option value="PCO SEWA">PCO SEWA</option>
+                            <option value="POTATO HARVESTING">POTATO HARVESTING</option>
+                            <option value="RAILWAY SEWA">RAILWAY SEWA</option>
+                            <option value="ROAD SEWA- BEAS">ROAD SEWA- BEAS</option>
+                            <option value="SANITATION SEWA">SANITATION SEWA</option>
+                            <option value="SECURITY SEWA">SECURITY SEWA</option>
+                            <option value="SECURITY SEWA- GATES">SECURITY SEWA- GATES</option>
+                            <option value="SEWA SAMITI- SHED NO.1&2">SEWA SAMITI- SHED NO.1&2</option>
+                            <option value="SHED SEWA">SHED SEWA</option>
+                            <option value="SHISHU KUNJ">SHISHU KUNJ</option>
+                            <option value="SHOPPING COMPLEX-FRUIT STALL">SHOPPING COMPLEX-FRUIT STALL</option>
+                            <option value="SHOPPING COMPLEX-FRUIT GENERAL STORE">SHOPPING COMPLEX-FRUIT GENERAL
+                                STORE</option>
+                            <option value="SHOPPING COMPLEX-FRUIT LAUNDRY SEWA">SHOPPING COMPLEX-FRUIT LAUNDRY SEWA
+                            </option>
+                            <option value="SK/SR/PATHI/BSK DUTY">SK/SR/PATHI/BSK DUTY</option>
+                            <option value="SNACK BAR-1 SEWA">SNACK BAR-1 SEWA</option>
+                            <option value="SNACK BAR-2 SEWA">SNACK BAR-2 SEWA</option>
+                            <option value="SOLAR SEWA">SOLAR SEWA</option>
+                            <option value="SPECIAL SEWA (BEAS RIVER)">SPECIAL SEWA (BEAS RIVER)</option>
+                            <option value="TAILORING SEWA">TAILORING SEWA</option>
+                            <option value="TOKRA MAKING SEWA">TOKRA MAKING SEWA</option>
+                            <option value="TRACTOR/TROLLEY SEWA">TRACTOR/TROLLEY SEWA</option>
+                            <option value="TRAFFIC SEWA">TRAFFIC SEWA</option>
+                            <option value="VEN/BUS CONDUCTOR SEWA">VEN/BUS CONDUCTOR SEWA</option>
+                            <option value="WELDER SEWA">WELDER SEWA</option>
+                        </select>
+
+
+
+                        <span id="department-sewa-error"></span>
+                    </div>
+
+                    <div class="sangatAndSewadarList">
+                        <div class="tableData">
+                            <table id="nominalRollTableList">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 3%;">SR NO.</th>
+                                        <th style="width: 4%;" class="hideData">BADGE NUMBER</th>
+                                        <th style="width: 4%;" class="hideData">Designation</th>
+                                        <th style="width: 13%;">NAME OF SEWADAR/ SEWADARNI</th>
+                                        <th style="width: 13%;">FATHER'S/ HUSBAND NAME</th>
+                                        <th style="width: 3%;">MALE/ FEMALE</th>
+                                        <th style="width: 3%;">AGE</th>
+                                        <th style="width: 21%;">R/O VILLAGE/TOWN/LOCALITY/ DISTRICT</th>
+                                        <th style="width: 10%;">MOBILE_NO.</th>
+                                        <th style="width: 11%;">AADHAR__NO.</th>
+                                        <th style="width: 1%;" class="hideData">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="nominalRollTable">
+
+                                </tbody>
+                            </table>
+
+                            <table id="nominalRollTableOfBadgeSewadar">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%;">SR NO.</th>
+                                        <th style="width: 18%;">BADGE NUMBER</th>
+                                        <th style="width: 4%;" class="hideData">Designation</th>
+                                        <th style="width: 18%;">NAME OF SEWADAR/ SEWADARNI</th>
+                                        <th style="width: 18%;">FATHER'S/ HUSBAND NAME</th>
+                                        <th style="width: 9.5%;">MALE/ FEMALE</th>
+                                        <th style="width: 6%;">AGE</th>
+                                        <th style="width: 40%;">R/O VILLAGE/TOWN/LOCALITY/ DISTRICT</th>
+                                        <th style="width: 2%;" class="hideData">MOBILE_NO.</th>
+                                        <th style="width: 2%;" class="hideData">AADHAR__NO.</th>
+                                        <th style="width: 1%;" class="hideData">STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="nominalRollTableOfBadge">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="nominalInputBox">
+                        <label class="note">Note :</label>
+                        <p name="Note" class="noteMsg" id="healthNote">THE IDENTITY, AGE AND PHYSICAL FITNESS OF
+                            EACH SEWADAR IS HEREBY CONFIRMED.</p>
+                    </div>
+
+                    <div class="maleFemaleTotalOfSewa">
+                        <div id="sewadarMaleFemaleCount">
+                            <div>
+                                <p>MALE :</p>
+                                <span id="maleCount">00</span>
+                            </div>
+                            <div>
+                                <p>FEMALE :</p>
+                                <span id="femaleCount">00</span>
+                            </div>
+                            <div>
+                                <p>TOTAL :</p>
+                                <span id="totalCount">00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="maleFemaleTotalOfBadge">
+                        <div id="badgeMaleFemaleCount">
+                            <div>
+                                <p>MALE :</p>
+                                <span id="badgeMaleCount">00</span>
+                            </div>
+                            <div>
+                                <p>FEMALE :</p>
+                                <span id="badgeFemaleCount">00</span>
+                            </div>
+                            <div>
+                                <p>TOTAL :</p>
+                                <span id="badgeTotalCount">00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="jathedarSignSecretarySign">
+                        <div class="leftSideSignBox">
+                            <div class="nominalInputBox">
+                                <p class="signatureOfJathedar">(SIGNATURE OF JATHEDAR)</p>
+                            </div>
+                            <div id="jathedarNameAndSign" class="nominalInputBox">
+                                <p class="jathedarSignName">NAME :</p>
+                                <p class="jathedarSignName" id="automaticFillJathedarName"></p>
+                            </div>
+                            <div class="nominalInputBox dateInputBox">
+                                <label for="jathedarSignDate">DATE :</label>
+                                <input class="nominalDate" type="date" name="JathedarSignDateSewa" id="jathedarSignDate"
+                                    onchange="jathedarSignDateFunc()">
+                                <span id="jathedar-sign-date-error"></span>
+                            </div>
+                            <div class="nominalInputBox contactOfJathedarForSign">
+                                <P class="contactOfJathedar">CONTACT :</P>
+                                <p contenteditable="true" class="signatureOfJathedar">79880 78920</p>
+                            </div>
+                        </div>
+
+                        <div class="rightSideSignBox">
+                            <div id="secretarySignAndRubberPad" class="nominalInputBox">
+                                <P class="secretaryContact">(SIGNATURE OF FUNCTIONARY)</P>
+                                <p class="secretaryContact">(AFFIX RUBBER STAMP)</p>
+                            </div>
+                            <div class="nominalInputBox">
+                                <label for="secretarySignName">NAME :</label>
+                                <input type="text" name="SecretaryNameSewa" autocomplete="given-name"
+                                    placeholder="Enter Functionary Name" id="secretarySignName"
+                                    onkeyup="secretaryNameFunc()">
+                                <span id="secretary-name-error"></span>
+                            </div>
+                            <div class="nominalInputBox dateInputBox">
+                                <label for="secSignDate">DATE :</label>
+                                <input class="nominalDate" type="date" name="SecSignDateSewa" id="secSignDate"
+                                    onchange="secSignDateFunc()">
+                                <span id="sec-sign-date-error"></span>
+                            </div>
+                            <div class="nominalInputBox contactOfJathedarForSign">
+                                <P class="contactOfJathedar">CONTACT :</P>
+                                <p contenteditable="true" class="signatureOfJathedar">87081 85283</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearAndSubmitBtn">
+                        <div class="submitBtn">
+                            <button type="submit" id="nominalSmitBtn">Save Data</button>
+                            <button type="submit" id="nominalUpdateBtn">Update</button>
+                        </div>
+                        <div class="createNominalBtn">
+                            <button type="print" id="nominalCreateBtn">Create Nominal Roll</button>
+                        </div>
+                        <div class="clearBtn">
+                            <button type="clear" id="nominalClrBtn">Clear Data</button>
+                        </div>
+                    </div>
+                    <span id="nominal-subit-error"></span>
+                </form>
+                <span class="nominal-msg" id="nominal-success-msg"></span>
+            </div>
+
+            <div class="searchDataBox">
+                <div class="icon">
+                    <p>Search Sangat Data</p>
+                </div>
+
+                <div class="badgeNumberSelect">
+                    <label for="nominalWithBadgeNo">
+                        If You Want To Create A Nominal Roll
+                        <span id="nameChange"> With Badge Number
+                            Please Check It</span>
+                    </label>
+                    <input size="50px" id="nominalWithBadgeNo" type="checkbox">
+                </div>
+
+                <!-- sangat sewadar ke name ko nominal roll me add karne ka code yaha se start hota hai. -->
+                <hr>
+                <div class="hrName">
+                    <h6>Sangat/Sewadar Name add to Nominal Roll</h6>
+                </div>
+                <hr>
+                <div class="inputBoxTwo">
+                    <div class="nominalIdAndCentreName">
+                        <div class="nominalSearchBox">
+                            <label class="nominalCentreLabel" for="sangatSewadarSearchCentreName">
+                                Select Centre Name :
+                            </label>
+                            <select class="rightSideSearchBox" name="centerName" id="sangatSewadarSearchCentreName">
+                                <option value="SelectCentreName">Select Centre Name</option>
+                                <option value="Mohindergarh">Mohindergarh</option>
+                                <option value="Bairawas">Bairawas</option>
+                                <option value="Bawania">Bawania</option>
+                                <option value="Zerpur">Zerpur</option>
+                                <option value="Satnali">Satnali</option>
+                                <option value="Sehlang">Sehlang</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p class="alignCenter">OR</p>
+
+                    <div class="nameFathernameSearchBox">
+                        <div class="nominalSearchBox">
+                            <label for="forSewaSangatSewadarSearchName">Sangat/Sewadar Name :</label>
+                            <input class="rightSideSearchBox" type="text" placeholder="Search Name"
+                                id="forSewaSangatSewadarSearchName">
+                        </div>
+                        <div class="nominalSearchBox">
+                            <label for="forSewaSangatSewadarFath_Hus_Name">Father / Husband Name :</label>
+                            <input class="rightSideSearchBox" type="text" placeholder="Enter Father/Husband Name"
+                                id="forSewaSangatSewadarFath_Hus_Name">
+                        </div>
+                    </div>
+
+                    <div class="nominalSearchButton">
+                        <button type="search" id="badgeSewadarSearchBtn">Search</button>
+                        <button type="search" id="sangatSewadarSearchBtn">Search</button>
+                        <img src="search-gif.gif" class="sangatSewadarSearchIcon">
+                    </div>
+
+                    <span id="sangat-sewadar-search-error">
+                        You Are Not In Our Database! <br> Please Save Your Data First.
+                    </span>
+                </div>
+
+                <div class="sewadarSangatNominalList">
+                    <table id="dataTableOfNominalSewadar">
+                        <thead>
+                            <tr>
+                                <th style="width: 7%;">Centre Name</th>
+                                <th style="width: 7%;">Badge No.</th>
+                                <th style="width: 7%;">Designation</th>
+                                <th style="width: 14%;">Name</th>
+                                <th style="width: 14%;">F/H Name</th>
+                                <th style="width: 4%;">Male/ Female</th>
+                                <th style="width: 3%;">Age</th>
+                                <th style="width: 23%;">Address</th>
+                                <th style="width: 10%;">Mobile Number</th>
+                                <th style="width: 11%;">Aadhar Number</th>
+                                <th style="width: 2%;">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="nominalSewadar">
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+                <!-- sangat sewadar jo jathe me gye hai unko search karne ka code yaha se start hota hai. -->
+
+                <hr>
+                <div class="hrName">
+                    <h6>Sangat/Sewadar who went to Jatha </h6>
+                </div>
+                <hr>
+
+                <div class="instruction">
+
+                    <p class="d-inline-flex gap-1">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            Instructions For Searching
+                        </a>
+                    </p>
+
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <ol>
+                                <li><span>By Name:</span> Name, Father Name</li>
+                                <li><span>By Badge Number:</span> Badge Number</li>
+                                <li><span>By Date Range:</span> From Date, To Date</li>
+                                <li><span>By Department:</span> Department</li>
+                                <li><span>By Centre Name:</span> Centre Name</li>
+                                <li><span>By Designation:</span> Designation</li>
+                                <li><span>By Status:</span> Status (Absent/Present)</li>
+                                <li><span>By Name and Date Range:</span> Name, Father Name, From Date, To Date</li>
+                                <li><span>By Department and Designation:</span> Department, Designation</li>
+                                <li><span>By Status and Department:</span> Status, Department</li>
+                                <li><span>By Centre Name and Status:</span> Centre Name, Status</li>
+                                <li><span>By Name, Department, and Designation:</span> Name, Father Name, Department,
+                                    Designation
+                                </li>
+                                <li><span>By Name, Date Range, and Status:</span> Name, Father Name, From Date, To Date,
+                                    Status</li>
+                                <li><span>By Badge Number and Status:</span> Badge Number, Status</li>
+                                <li><span>By Date Range, Department, and Status:</span> From Date, To Date, Department,
+                                    Status</li>
+                                <li><span>By Designation and Status:</span> Designation, Status</li>
+                                <li><span>By Centre Name, Department, and Status:</span> Centre Name, Department, Status
+                                </li>
+                                <li><span>By Name, Badge Number, and Designation:</span> Name, Father Name, Badge
+                                    Number, Designation
+                                </li>
+                                <li><span>By Name, Department, and Status:</span> Name, Father Name, Department, Status
+                                </li>
+                                <li><span>By Badge Number, Date Range, and Designation:</span> Badge Number, From Date,
+                                    To Date,
+                                    Designation</li>
+                                <li><span>By Name, Date Range, and Designation:</span> Name, Father Name, From Date, To
+                                    Date,
+                                    Designation
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inputBoxTwo">
+                    <div class="threeCentreBox">
+                        <div class="smallInput">
+                            <label for="fromDateSearch">From Date :</label>
+                            <input type="date" id="fromDateSearch">
+                        </div>
+                        <div class="smallInput">
+                            <label for="toDateSearch">To Date :</label>
+                            <input type="date" id="toDateSearch">
+                        </div>
+                        <div class="departmentInput">
+                            <label for="departmentSearch">Department :</label>
+
+                            <select id="departmentSearch">
+                                <option value="SelectDepartmentName">Select Department</option>
+                                <option value="ALL">ALL</option>
+                                <option value="ACCOMMODATION SEWA">ACCOMMODATION SEWA</option>
+                                <option value="AGRICULTURE SEWA">AGRICULTURE SEWA</option>
+                                <option value="AV">AV</option>
+                                <option value="BEAS CARPENTRY SEWA">BEAS CARPENTRY SEWA</option>
+                                <option value="BEAS CENTRAL STORE SEWA">BEAS CENTRAL STORE SEWA</option>
+                                <option value="BEAS ELECTRICAL SEWA">BEAS ELECTRICAL SEWA</option>
+                                <option value="BEAS FLOORING SEWA (SHED NO.2)">BEAS FLOORING SEWA (SHED NO.2)</option>
+                                <option value="BEAS FLOUR MILL SEWA">BEAS FLOUR MILL SEWA</option>
+                                <option value="BEAS HOSTEL SEWA">BEAS HOSTEL SEWA</option>
+                                <option value="BEAS LANDSCAPING SEWA">BEAS LANDSCAPING SEWA</option>
+                                <option value="BEAS LANGAR BAALAN SEWA">BEAS LANGAR BAALAN SEWA</option>
+                                <option value="BEAS LANGAR BADGESECTION SEWA">BEAS LANGAR BADGESECTION SEWA</option>
+                                <option value="BEAS LANGAR SECURITY SEWA">BEAS LANGAR SECURITY SEWA</option>
+                                <option value="BEAS MATTRESS SEWA SHED NO.9">BEAS MATTRESS SEWA SHED NO.9</option>
+                                <option value="BEAS MECHNICAL WORKSHOP SEWA">BEAS MECHNICAL WORKSHOP SEWA</option>
+                                <option value="BEAS PARKING SEWA">BEAS PARKING SEWA</option>
+                                <option value="BEAS POTATO DIGGING">BEAS POTATO DIGGING</option>
+                                <option value="BEAS RAILWAY ENQUIRY SEWA">BEAS RAILWAY ENQUIRY SEWA</option>
+                                <option value="BEAS SCRAP SEWA">BEAS SCRAP SEWA</option>
+                                <option value="BEAS SHAMIANA STORE">BEAS SHAMIANA STORE</option>
+                                <option value="BEAS TILE FACTORY SEWA">BEAS TILE FACTORY SEWA</option>
+                                <option value="BITUMEN (LUK) SEWA">BITUMEN (LUK) SEWA</option>
+                                <option value="BOOKS">BOOKS</option>
+                                <option value="BUS/VAN DRIVERS">BUS/VAN DRIVERS</option>
+                                <option value="CANTEEN-4 SEWA">CANTEEN-1 SEWA</option>
+                                <option value="CANTEEN-3 SEWA">CANTEEN-2 SEWA</option>
+                                <option value="CANTEEN-2 SEWA">CANTEEN-3 SEWA</option>
+                                <option value="CANTEEN-1 SEWA">CANTEEN-4 SEWA</option>
+                                <option value="CHILDREN CARE SEWA- NAMDAAN">CHILDREN CARE SEWA- NAMDAAN</option>
+                                <option value="COMMON COMPLAINT CELL SEWA- BEAS">COMMON COMPLAINT CELL SEWA- BEAS
+                                </option>
+                                <option value="CONSTRUCTION SEWA">CONSTRUCTION SEWA</option>
+                                <option value="DAK SEWA">DAK SEWA</option>
+                                <option value="DCC SEWA">DCC SEWA</option>
+                                <option value="ENGINEERING SEWA">ENGINEERING SEWA</option>
+                                <option value="F&B UNIT-1 SEWA">F&B UNIT-1 SEWA</option>
+                                <option value="F&B UNIT-2 SEWA">F&B UNIT-2 SEWA</option>
+                                <option value="F&B UNIT-3 SEWA">F&B UNIT-3 SEWA</option>
+                                <option value="F&B UNIT-4 SEWA">F&B UNIT-4 SEWA</option>
+                                <option value="FLOORING SEWA- SHED NO.12">FLOORING SEWA- SHED NO.12</option>
+                                <option value="FLOORING SEWA SHED NO.14">FLOORING SEWA SHED NO.14</option>
+                                <option value="FOOD AND VEGETABLE">FOOD AND VEGETABLE</option>
+                                <option value="HELP LINE BEAS">HELP LINE BEAS</option>
+                                <option value="HORTICULTURE SEWA">HORTICULTURE SEWA</option>
+                                <option value="HOSPITAL SEWA- BEAS">HOSPITAL SEWA- BEAS</option>
+                                <option value="HOSPITAL SEWA- DERA">HOSPITAL SEWA- DERA</option>
+                                <option value="HOSPITAL SEWA- SIKANDERPUR">HOSPITAL SEWA- SIKANDERPUR</option>
+                                <option value="KAEE SEWA">KAEE SEWA</option>
+                                <option value="LANGAR CHHABEEL">LANGAR CHHABEEL</option>
+                                <option value="LANGAR GATE SEWA">LANGAR GATE SEWA</option>
+                                <option value="LANGAR SEWA">LANGAR SEWA</option>
+                                <option value="LANGAR STORE">LANGAR STORE</option>
+                                <option value="MAND SEWA">MAND SEWA</option>
+                                <option value="MITTI SEWA">MITTI SEWA</option>
+                                <option value="NAAMDAAN SEWA">NAAMDAAN SEWA</option>
+                                <option value="NIGHT SEWA">NIGHT SEWA</option>
+                                <option value="NURSERY">NURSERY</option>
+                                <option value="PA SOUND SEWA">PA SOUND SEWA</option>
+                                <option value="PANDAL SEWA">PANDAL SEWA</option>
+                                <option value="PCO SEWA">PCO SEWA</option>
+                                <option value="POTATO HARVESTING">POTATO HARVESTING</option>
+                                <option value="RAILWAY SEWA">RAILWAY SEWA</option>
+                                <option value="ROAD SEWA- BEAS">ROAD SEWA- BEAS</option>
+                                <option value="SANITATION SEWA">SANITATION SEWA</option>
+                                <option value="SECURITY SEWA">SECURITY SEWA</option>
+                                <option value="SECURITY SEWA- GATES">SECURITY SEWA- GATES</option>
+                                <option value="SEWA SAMITI- SHED NO.1&2">SEWA SAMITI- SHED NO.1&2</option>
+                                <option value="SHED SEWA">SHED SEWA</option>
+                                <option value="SHISHU KUNJ">SHISHU KUNJ</option>
+                                <option value="SHOPPING COMPLEX-FRUIT STALL">SHOPPING COMPLEX-FRUIT STALL</option>
+                                <option value="SHOPPING COMPLEX-FRUIT GENERAL STORE">SHOPPING COMPLEX-FRUIT GENERAL
+                                    STORE</option>
+                                <option value="SHOPPING COMPLEX-FRUIT LAUNDRY SEWA">SHOPPING COMPLEX-FRUIT LAUNDRY SEWA
+                                </option>
+                                <option value="SK/SR/PATHI/BSK DUTY">SK/SR/PATHI/BSK DUTY</option>
+                                <option value="SNACK BAR-1 SEWA">SNACK BAR-1 SEWA</option>
+                                <option value="SNACK BAR-2 SEWA">SNACK BAR-2 SEWA</option>
+                                <option value="SOLAR SEWA">SOLAR SEWA</option>
+                                <option value="SPECIAL SEWA (BEAS RIVER)">SPECIAL SEWA (BEAS RIVER)</option>
+                                <option value="TAILORING SEWA">TAILORING SEWA</option>
+                                <option value="TOKRA MAKING SEWA">TOKRA MAKING SEWA</option>
+                                <option value="TRACTOR/TROLLEY SEWA">TRACTOR/TROLLEY SEWA</option>
+                                <option value="TRAFFIC SEWA">TRAFFIC SEWA</option>
+                                <option value="VEN/BUS CONDUCTOR SEWA">VEN/BUS CONDUCTOR SEWA</option>
+                                <option value="WELDER SEWA">WELDER SEWA</option>
+                            </select>
+
+                        </div>
+
+                        <div class="bigInput">
+                            <label class="nominalCentreLabel" for="parentCentreSearch">
+                                Select Centre Name :
+                            </label>
+                            <select name="centerName" id="parentCentreSearch">
+                                <option value="SelectCentreName">Select Centre Name</option>
+                                <option value="ALL">ALL</option>
+                                <option value="MOHINDERGARH">MOHINDERGARH</option>
+                                <option value="BAIRAWAS">BAIRAWAS</option>
+                                <option value="BAWANIA">BAWANIA</option>
+                                <option value="ZERPUR">ZERPUR</option>
+                                <option value="SATNALI">SATNALI</option>
+                                <option value="SEHLANG">SEHLANG</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <p class="alignCenter">OR</p>
+
+                    <div class="badgeNoAndCentreName">
+                        <div id="boxOfStatus" class="statusBoxForAttendance">
+                            <label for="absentPresentBox">Status :</label>
+                            <select id="absentPresentBox">
+                                <option value="selectStatus">Select Status</option>
+                                <option value="All">All</option>
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                            </select>
+                        </div>
+
+                        <p class="leftAndRightBorder">OR</p>
+
+                        <div class="searchNominalDesig statusBoxForAttendance">
+                            <label for="searchNominalDesignation">Designation :</label>
+                            <select id="searchNominalDesignation" name="Designation">
+                                <option value="SelectDesignation">Select Designation</option>
+                                <option value="ALL">ALL</option>
+                                <option value="AREA-SECRETARY">AREA-SECRETARY</option>
+                                <option value="SECRETARY">SECRETARY</option>
+                                <option value="PRESIDENT">PRESIDENT</option>
+                                <option value="COMMITTEE MEMBER">COMMITTEE MEMBER</option>
+                                <option value="INCHARGE">INCHARGE</option>
+                                <option value="ASSISTANT INCHARGE">ASSISTANT INCHARGE</option>
+                                <option value="CARETAKER">CARETAKER</option>
+                                <option value="ASSISTANT CARETAKER">ASSISTANT CARETAKER</option>
+                                <option value="SATSANG KARTA">SATSANG KARTA</option>
+                                <option value="SATSANG READER">SATSANG READER</option>
+                                <option value="PATHI">PATHI</option>
+                                <option value="BADGE SEWADAR">BADGE SEWADAR</option>
+                                <option value="NON-BADGE SEWADAR">NON-BADGE SEWADAR</option>
+                                <option value="SANGAT">SANGAT</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <p class="alignCenter">OR</p>
+
+                    <div class="nameFathernameSearchBox">
+                        <div class="nominalSearchBox statusBoxForAttendance">
+                            <label for="sangatSewadarSearchName">Sangat/Sewadar Name :</label>
+                            <input class="rightSideSearchBox" type="text" placeholder="Search Name"
+                                id="sangatSewadarSearchName">
+                        </div>
+                        <div class="nominalSearchBox statusBoxForAttendance">
+                            <label class="fatherLabel" for="sangatSewadarFath_Hus_Name">Father / Husband Name :</label>
+                            <input class="rightSideSearchBox" type="text" placeholder="Enter Father/Husband Name"
+                                id="sangatSewadarFath_Hus_Name">
+                        </div>
+                    </div>
+
+                    <p class="alignCenter">OR</p>
+
+                    <div class="nominalSearchBadgeNo statusBoxForAttendance">
+                        <label for="searchBadgeNo">Badge Number :</label>
+                        <input type="text" placeholder="Search Badge Number" id="searchBadgeNo">
+                    </div>
+
+                    <div class="nominalSearchButton">
+                        <button type="search" id="nominalSearchBtn">Search</button>
+                        <img src="search-gif.gif" class="nominalSearchIcon">
+                    </div>
+
+                    <span id="nominal-search-error">
+                        Data Are Not Available In Our Database!
+                    </span>
+
+                    <div class="nominalResultBox">
+                        <table id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>NominalRoll Id</th>
+                                    <th>Area Name</th>
+                                    <th>C/SC/P Name</th>
+                                    <th>Place Of Sewa</th>
+                                    <th>Department</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>JatheDar Sign Date</th>
+                                    <th>Functionary Name</th>
+                                    <th>Functionary Sign Date</th>
+                                    <th>Badge No.</th>
+                                    <th>Designation</th>
+                                    <th>Name</th>
+                                    <th>Father /Name</th>
+                                    <th>Male /Female</th>
+                                    <th>Age</th>
+                                    <th>Address</th>
+                                    <th>Mobile No.</th>
+                                    <th>AadharCard No.</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="statusFooter">
+                        <div class="tableFooterOfStatus">
+                            <div>
+                                <span>Name : <p id="statusName"></p></span>
+                            </div>
+                            <div>
+                                <span>F/Name : <p id="statusFName"></p></span>
+                            </div>
+                            <div>
+                                <span>Absent : <p style="color: rgb(171, 64, 64);" id="statusAbsent"></p></span>
+                            </div>
+                            <div>
+                                <span>Present : <p style="color: green;" id="statusPresent"></p></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container" id="boxSix">
+        <div id="notesForBoxOfSix">
+            <h6>
+                <code><b>Note:-</b></code> The Details Of All These Cards Will Be Automatically Deleted After 3 Days,
+                So Be Careful, You Can Edit Or Submit Within 3 Days.
+            </h6>
+        </div>
+
+        <div>
+            <div id="cardBoxes" class="row row-cols-1 row-cols-md-3 g-4">
+
+            </div>
+        </div>
+
+
+        <div id="loaderContainer">
+            <div id="loader">
+                <h1 id="timeRunner"><span class="inrTime">00</span></h1>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+
+    </body>
+
+</html>
