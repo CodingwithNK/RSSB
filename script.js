@@ -3939,6 +3939,91 @@ function clickForBadge() {
             sangatSewadarSearchError.style.display = "none";
 
 
+              // this code for Sangat's database
+            setTimeout(() => {
+
+                const URL = "https://script.google.com/macros/s/AKfycbzOy4-ughFaYjKETBmDKGJu-XtlC7z0qHpWnIs_eBhF89I2A8zNWun6pW8ntArT0MsEuQ/exec";
+                fetch(URL)
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then((data) => {
+
+                        let val1 = sangatSewadarSearchCentreName.value;
+                        let val2 = forSewaSangatSewadarSearchName.value;
+                        let val3 = forSewaSangatSewadarFath_Hus_Name.value;
+
+
+                        data.content.filter(item => {
+
+                            let condition1 = item.includes(val1);
+                            let condition2 = item.includes(val2) && item.includes(val3);
+
+                            if ((condition1) || (condition2)) {
+
+                                forSewaSangatSewadarSearchName.classList.remove('nullError');
+                                forSewaSangatSewadarFath_Hus_Name.classList.remove('nullError');
+                                sangatSewadarSearchCentreName.classList.remove('nullError');
+
+                                sangatSewadarSearchIcon.style.display = 'none';
+                                badgeSewadarSearchBtn.style.display = 'block';
+                                sewadarSangatNominalList.style.display = "block";
+                                sangatSewadarSearchError.style.display = "none";
+
+
+                                // datetime format ko date me convert karega or actual date print karega.
+                                const jathaFromDate = item[5];
+                                const jathaFrom = new Date(jathaFromDate);
+                                jathaFrom.setDate(jathaFrom.getDate() + 1);
+                                const dobDate = jathaFrom.toISOString().split('T')[0];
+
+                                const dobAge = calculateDob(dobDate); // this function call for calculating age
+
+
+                                const tableRow = document.createElement('tr');
+
+                                tableRow.innerHTML =
+                                    `<td>${item[0]}</td>
+                                    <td></td>
+                                    <td>${item[1]}</td>
+                                    <td>${item[2]}</td>
+                                    <td>${item[3]}</td>
+                                    <td>${item[4]}</td>
+                                    <td>${dobAge}</td>
+                                    <td>${item[8]}</td>
+                                    <td>${item[6]}</td>
+                                    <td>${item[9]}</td>
+                                    <td><span id="tableIcon">
+                                    <i class="fa-solid fa-plus"></i>
+                                    </span></td>`;
+
+                                nominalSewadar.appendChild(tableRow);
+                                removeDuplicateRowsFromTable();
+
+                            } else {
+                                sangatSewadarSearchIcon.style.display = 'none';
+                                badgeSewadarSearchBtn.style.display = 'block';
+
+                                setTimeout(() => {
+                                    if (nominalSewadar.innerHTML !== "") {
+                                        sangatSewadarSearchError.style.display = "none";
+                                    } else {
+                                        sangatSewadarSearchError.style.display = "block";
+                                    };
+                                }, 1500);
+
+                            };
+
+
+                        });
+
+                    });
+
+            }, 10);
+
+
+            
+
             // this code for badgeSewadar's database
             setTimeout(() => {
 
