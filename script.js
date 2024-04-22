@@ -9065,7 +9065,7 @@ pendingBtn.addEventListener("click", function () {
 
 const loginUsr = document.getElementById('loginUsr');
 const storedToken = localStorage.getItem('token');
-
+const logOutBtn = document.getElementById('logOutBtn');
 
 const [firstValue] = storedToken.split(',');
 
@@ -9073,13 +9073,14 @@ loginUsr.innerHTML = firstValue;
 
 
 // Logout functionality
-function logout() {
+// function logout() {
 
+logOutBtn.addEventListener("click", function () {
     window.history.replaceState(null, null, '/index.html');
     window.location.href = '/index.html';
 
     localStorage.removeItem('token');
-};
+});
 
 
 
