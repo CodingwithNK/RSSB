@@ -9075,8 +9075,8 @@ loginUsr.innerHTML = firstValue;
 // Logout functionality
 function logout() {
 
-    window.history.replaceState(null, null, '/index.html');
-    window.location.href = '/index.html';
+    window.history.replaceState(null, null, 'index.html');
+    window.location.href = 'index.html';
 
     localStorage.removeItem('token');
 };
