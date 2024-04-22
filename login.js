@@ -79,8 +79,8 @@ loginBtn.addEventListener("click", function (e) {
 
                         } else {
                             // Redirect to login page
-                            window.history.replaceState(null, null, '/index.html');
-                            window.location.href = "/index.html";
+                            window.history.replaceState(null, null, 'index.html');
+                            window.location.href = "index.html";
 
                         }
 
