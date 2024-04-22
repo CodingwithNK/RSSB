@@ -1,0 +1,250 @@
+@media print {
+
+    body {
+        color: black;
+        background-color: white;
+        font-family: Calibri (Body);
+    }
+
+    #boxOne {
+        display: none !important;
+    }
+
+    #boxFive #allSearchBoxes {
+        display: none;
+    }
+
+    #boxFive .icon {
+        display: none;
+    }
+
+    #boxFive form label {
+        font-size: 11px;
+        font-weight: 500;
+    }
+
+
+    #boxFive form input,
+    #boxFive form select {
+        font-size: 11px !important;
+        font-weight: 700 !important;
+    }
+
+    #boxFive #nominalDataForm #sewadarMaleFemaleCount div p,
+    #boxFive #nominalDataForm #badgeMaleFemaleCount div p {
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+
+    .jathedarSignSecretarySign .leftSideSignBox #jathedarNameAndSign p:last-child {
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    #boxFive form .signatureOfJathedar {
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    #boxFive .logoAndFormName {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    #boxFive .nominalBox .saveDataBox {
+        min-width: 796.92px;
+        max-width: 796.92px;
+        min-height: 1123.04px;
+        box-shadow: none;
+        padding: 25px !important;
+    }
+
+    #boxFive .sangatAndSewadarList table th,
+    #boxFive .sangatAndSewadarList table:last-child th {
+        font-size: 11px;
+        font-weight: 700 !important;
+    }
+
+    #boxFive .sangatAndSewadarList table tbody td input,
+    #boxFive .sangatAndSewadarList table:last-child tbody td input {
+        font-size: 13px;
+        font-weight: 500 !important;
+        border-radius: 2px;
+    }
+
+    .jathedarSignSecretarySign .contactOfJathedarForSign .signatureOfJathedar {
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    #boxFive #nominalDataForm #jathedarSignDate {
+        margin-left: 8px;
+    }
+
+    #boxFive .clearAndSubmitBtn {
+        display: none;
+    }
+
+    #boxFive #nominalDataForm #nominal-subit-error {
+        display: none;
+    }
+
+    #boxFive #hideDesignation {
+        display: none;
+    }
+
+    #boxFive #nominalDataForm .nameAreaZone #selectNominalCentreName,
+    #boxFive #nominalDataForm #durationOfSewa,
+    #boxFive #nominalDataForm #sewaTo,
+    #boxFive #nominalDataForm #jathedarSignDate,
+    #boxFive #nominalDataForm #secSignDate,
+    #placeOfSewa,
+    #departmentSewa {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    #boxFive #nominalDataForm #nominal-roll-id-error,
+    #boxFive #nominalDataForm #nominal-centre-error,
+    #boxFive #nominalDataForm #area-name-error,
+    #boxFive #nominalDataForm #nominal-name-error,
+    #boxFive #nominalDataForm #driver-name-error,
+    #boxFive #nominalDataForm #vehicle-name-error,
+    #boxFive #nominalDataForm #vehicle-number-error,
+    #boxFive #nominalDataForm #place-name-error,
+    #boxFive #nominalDataForm #department-sewa-error,
+    #boxFive #nominalDataForm #sewa-duration-from-error,
+    #boxFive #nominalDataForm #sewa-duration-to-error,
+    #boxFive #nominalDataForm #jathedar-name-error,
+    #boxFive #nominalDataForm #jathedar-sign-date-error,
+    #boxFive #nominalDataForm #sec-sign-date-error,
+    #boxFive #nominalDataForm #secretary-name-error {
+        display: none;
+    }
+
+    #boxFive .nameAreaZone #selectNominalCentreName {
+        color: black;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    #boxFive form .nominalInputBox {
+        margin: 0 !important;
+    }
+
+    #boxFive .nominalInputBox input,
+    #boxFive #selectNominalCentreName,
+    #departmentSewa,
+    #placeOfSewa {
+        padding: 1px;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    #boxFive .nameAreaZone {
+        margin: 3px 0;
+    }
+
+    #boxFive form .spaceForTopAndBottom {
+        margin: 12px 0;
+    }
+
+
+
+    #boxFive form #nominalRollBox {
+        width: 50%;
+        margin: 12px 0 !important;
+    }
+
+    #boxFive form #nominalRollBox label {
+        width: 38.5%;
+    }
+
+    #boxFive form #nominalRollBox input {
+        width: 45%;
+        font-weight: 700;
+    }
+
+    #boxFive form .spaceFromLeftSide label {
+        width: 41%;
+    }
+
+    #boxFive form .spaceFromLeftSide input,
+    #boxFive form .spaceFromLeftSide select {
+        width: 41%;
+    }
+
+    #boxFive form .spaceFromRightSide label {
+        width: 30%;
+    }
+
+    #boxFive form .spaceFromRightSide input {
+        width: 37%;
+    }
+
+
+
+    #boxFive form .areaLabelAndDuration label {
+        width: 40%;
+    }
+
+    #boxFive form .areaLabelAndDuration input {
+        width: 37%;
+    }
+
+
+
+    #boxFive form .durationLable {
+        width: 95%;
+    }
+
+    #boxFive form .durationLable label {
+        width: 83%;
+    }
+
+    #boxFive form .durationLable input {
+        width: 60%;
+    }
+
+
+
+    .placeDuration .dateFromTo {
+        grid-template-columns: 60% 40%;
+
+    }
+
+    #boxFive form .sewaLableForTo {
+        width: 100%;
+    }
+
+    #boxFive form .sewaLableForTo label {
+        width: 10%;
+    }
+
+    #boxFive form .sewaLableForTo input {
+        width: 80%;
+    }
+
+    #boxFive .sangatAndSewadarList #nominalRollTable tr,
+    #boxFive .sangatAndSewadarList #nominalRollTable td {
+        border: 1px solid black;
+    }
+
+
+    #boxFive .sangatAndSewadarList #nominalRollTable #deleteIcon,
+    #boxFive .sangatAndSewadarList #nominalRollTableOfBadge #deleteIconOfNominal {
+        display: none;
+    }
+
+
+
+    #boxFive .sangatAndSewadarList .tableData .hideData {
+        display: none;
+    }
+
+
+
+}
