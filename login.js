@@ -75,8 +75,8 @@ loginBtn.addEventListener("click", function (e) {
                         if (storedToken) {
 
                             // Add code to handle successful login here
-                            window.history.replaceState(null, null, '/home.html');
-                            window.location.href = "/home.html";
+                            window.history.replaceState(null, null, 'home.html');
+                            window.location.href = "home.html";
 
                         } else {
                             // Redirect to login page
