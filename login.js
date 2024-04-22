@@ -53,8 +53,7 @@ loginBtn.addEventListener("click", function (e) {
                     return response.json();
                 })
                 .then((data) => {
-                    console.log(data);
-
+                    
                     let val1 = usrname.value;
                     let val2 = usrPass.value;
 
