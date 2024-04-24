@@ -6440,6 +6440,7 @@ function nominalRollDetailsPrintIntoTable(printData) {
                 <td>${row[7]}</td>
                 <td>${dateConvertYYMMDD(row[8])}</td>
                 <td>${dateConvertYYMMDD(row[9])}</td>
+                 <td>${formattedDaysBetweenDates(row[8], row[9])}</td>
                 <td>${row[10]}</td>
                 <td>${row[3]}</td>
                 <td>
@@ -6451,6 +6452,10 @@ function nominalRollDetailsPrintIntoTable(printData) {
             nominalRollListBody.appendChild(currentRow);
         }
     }
+
+
+
+    
 
     // jab user nominalroll list table me download icon par click karega tab ye logic kam karega.
     nominalRollListBody.addEventListener("click", function (e) {
@@ -6473,15 +6478,37 @@ function nominalRollDetailsPrintIntoTable(printData) {
 
             getNominalRollDetails(nominalDataObj, spanIcon);
 
-
         };
-
-
     });
-
-
-
 };
+
+// calculate fromDate to toDate sewa duration in days --------------
+function daysBetweenDates(date1, date2) {
+    const startDate = new Date(date1);
+    const endDate = new Date(date2);
+    const millisecondsPerDay = 1000 * 60 * 60 * 24;
+    const differenceInMilliseconds = endDate - startDate;
+    const differenceInDays = Math.floor(differenceInMilliseconds / millisecondsPerDay);
+    return differenceInDays;
+}
+
+function formatNumber(num) {
+    if (num < 10) {
+        return "0" + num;
+    }
+    else {
+        return num.toString();
+    }
+}
+
+function formattedDaysBetweenDates(date1, date2) {
+    const days = daysBetweenDates(date1, date2);
+    return formatNumber(days);
+}
+
+
+
+
 
 // nominal roll details get karne ke bad filter kiya agar ye details match hoti hai tab downloadNominalRollInPDFFormat(printData) ye function call ho jaye.
 function getNominalRollDetails(dataObje, spanIcon) {
