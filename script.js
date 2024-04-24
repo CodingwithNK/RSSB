@@ -9065,6 +9065,7 @@ pendingBtn.addEventListener("click", function () {
 
 const loginUsr = document.getElementById('loginUsr');
 const storedToken = localStorage.getItem('token');
+
 const logOutBtn = document.getElementById('logOutBtn');
 
 const [firstValue] = storedToken.split(',');
