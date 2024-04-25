@@ -6399,7 +6399,7 @@ nominalRollIdSearchBtn.addEventListener("click", function () {
 
 
                     if (bulkData.length === 0) {
-                        displaySearchError("Data Are Not Available In Our Database!");
+                         nominalRollIdSearchError.style.display = "block";
                     } else {
 
                         nominalRollDetailsPrintIntoTable(bulkData);
@@ -6472,8 +6472,8 @@ function nominalRollDetailsPrintIntoTable(printData) {
                 "SewaPlace": tableRow.cells[2].innerText,
                 "SewaFromDt": tableRow.cells[3].innerText,
                 "SewaToDt": tableRow.cells[4].innerText,
-                "DepartmentName": tableRow.cells[5].innerText,
-                "JathedarName": tableRow.cells[6].innerText,
+                "DepartmentName": tableRow.cells[6].innerText,
+                "JathedarName": tableRow.cells[7].innerText,
             };
 
             getNominalRollDetails(nominalDataObj, spanIcon);
@@ -6562,7 +6562,7 @@ function getNominalRollDetails(dataObje, spanIcon) {
 
 
             if (bulkData.length === 0) {
-                displaySearchError("Data Are Not Available In Our Database!");
+                nominalRollIdSearchError.style.display = "block";
             } else {
 
                 downloadNominalRollInPDFFormat(bulkData, spanIcon);
