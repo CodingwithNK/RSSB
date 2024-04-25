@@ -2084,8 +2084,8 @@ select::-webkit-scrollbar-thumb {
 
 #nominalRollId-search-error {
     text-align: left;
-    width: 25%;
     color: red;
+    margin-bottom: -30px;
     font-weight: 500;
     display: none;
 }
