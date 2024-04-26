@@ -6624,7 +6624,7 @@ function downloadNominalRollInPDFFormat(printData, spanIcon) {
 
     print();
 
-    if(print){
+    setTimeout(()=>{
         
   nominalForm.reset();
     
@@ -6658,7 +6658,7 @@ function downloadNominalRollInPDFFormat(printData, spanIcon) {
     nominalSubmitBtn.style.display = "block";
     badgeNumberSelect.style.display = "block";
 
-    };
+    },2000);
 };
 
 
