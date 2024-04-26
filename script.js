@@ -6624,6 +6624,38 @@ function downloadNominalRollInPDFFormat(printData, spanIcon) {
 
     print();
 
+  nominalForm.reset();
+    
+    const table = document.getElementById('nominalRollTable');
+    
+    if (table) {
+        while (table.rows.length > 0) {
+            table.deleteRow(0);
+            maleCount.innerHTML = "00";
+            femaleCount.innerHTML = "00";
+            totalCount.innerHTML = "00";
+        }
+    };
+    
+    const table1 = document.getElementById('nominalRollTableOfBadge');
+    
+    if (table1) {
+        while (table1.rows.length > 0) {
+            table1.deleteRow(0);
+            badgeMaleCount.innerHTML = "00";
+            badgeFemaleCount.innerHTML = "00";
+            badgeTotalCount.innerHTML = "00";
+        }
+    };
+    
+    if (nameOfJathedar.value.length == 0) {
+        automaticFillJathedarName.innerHTML = "";
+    }
+    
+    nominalUpdateBtn.style.display = "none";
+    nominalSubmitBtn.style.display = "block";
+    badgeNumberSelect.style.display = "block";
+
    
 };
 
